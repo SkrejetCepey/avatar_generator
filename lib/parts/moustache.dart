@@ -8,12 +8,18 @@ class Moustache {
 
   Widget build() {
     return Container(
-        child: FractionallySizedBox(
-          heightFactor: 1.1,
-          widthFactor: 1.0,
-          alignment: Alignment.topCenter,
-            child: Image.asset(moustachePath)
-        )
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            children: <Widget>[
+              SizedBox(
+                height: constraints.minHeight / 2,
+              ),
+              Image.asset(moustachePath)
+            ],
+          );
+        },
+      ),
     );
   }
 }

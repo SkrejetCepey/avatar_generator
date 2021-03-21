@@ -8,12 +8,18 @@ class Eyes {
 
   Widget build() {
     return Container(
-        child: FractionallySizedBox(
-          widthFactor: 1,
-          heightFactor: .8,
-          alignment: Alignment.topCenter,
-            child: Image.asset(eyesPath)
-        )
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            children: <Widget>[
+              SizedBox(
+                height: constraints.minHeight * 0.35,
+              ),
+              Image.asset(eyesPath)
+            ],
+          );
+        },
+      ),
     );
   }
 }

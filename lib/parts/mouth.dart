@@ -8,12 +8,18 @@ class Mouth {
 
   Widget build() {
     return Container(
-        child: FractionallySizedBox(
-          alignment: Alignment.topCenter,
-          widthFactor: 1,
-            heightFactor: 1.2,
-            child: Image.asset(mouthPath)
-        )
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            children: <Widget>[
+              SizedBox(
+                height: constraints.minHeight / 1.9,
+              ),
+              Image.asset(mouthPath)
+            ],
+          );
+        },
+      ),
     );
   }
 }

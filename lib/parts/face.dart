@@ -8,11 +8,17 @@ class Face {
 
   Widget build() {
     return Container(
-      child: FractionallySizedBox(
-        alignment: Alignment.topCenter,
-          heightFactor: 1,
-          widthFactor: 1,
-          child: Image.asset(facePath)
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            children: <Widget>[
+              SizedBox(
+                height: constraints.minHeight / 4,
+              ),
+              Image.asset(facePath)
+            ],
+          );
+        },
       ),
     );
   }

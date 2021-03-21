@@ -8,12 +8,18 @@ class Hairstyle {
 
   Widget build() {
     return Container(
-        child: FractionallySizedBox(
-          heightFactor: .5,
-            widthFactor: .1,
-            alignment: Alignment.topCenter,
-            child: Image.asset(hairstylePath)
-        )
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            children: <Widget>[
+              SizedBox(
+                height: constraints.minHeight / 5,
+              ),
+              Image.asset(hairstylePath)
+            ],
+          );
+        },
+      )
     );
   }
 }
