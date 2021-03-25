@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:avatar_generator/colors_entry.dart';
 import 'package:avatar_generator/parts/eyes.dart';
 import 'package:avatar_generator/parts/face.dart';
 import 'package:avatar_generator/parts/hairstyle.dart';
@@ -57,7 +60,10 @@ class Avatar {
       children: [
         _face,
         _eyes,
-        _hairstyle,
+        ColorFiltered(
+          colorFilter: ColorFilter.mode(ColorsEntry.getChooseColor, BlendMode.srcIn),
+          child: _hairstyle,
+        ),
         _mouth,
         _moustache
       ],
